@@ -17,5 +17,4 @@ build:
     - >-
       "${READTHEDOCS_VIRTUALENV_PATH}"/bin/python docs/bin/clone-core.py
     - make coredocs -C docs/docsite
-    - mkdir -pv "${READTHEDOCS_OUTPUT}"/html
-    - mv -v docs/docsite/_build/html "${READTHEDOCS_OUTPUT}"/
+    - mkdir -pv "${READTHEDOCS_OUTPUT}"/html && mv -v docs/docsite/_build/html "${READTHEDOCS_OUTPUT}"/
