@@ -108,7 +108,6 @@ exclude_patterns = [] if tags.has('all') else [
     '2.10_index.rst',
     'ansible_index.rst',
     'core_index.rst',
-    'porting_guides/core_porting_guides',
 ]
 exclude_patterns += [] if tags.has('all') else [
     'network',
