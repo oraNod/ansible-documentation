@@ -98,3 +98,10 @@ jobs:
           pushd build-directory/docs/docsite
           ln -s ${VERSION} _build/latest
           popd
+
+      - name: Create a downloadable archive of the build output
+        uses: actions/upload-artifact@v4
+        with:
+          name: package-docs-build
+          path: build-directory/docs/docsite/_build/html/**
+          retention-days: 7
