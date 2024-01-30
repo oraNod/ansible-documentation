@@ -79,6 +79,7 @@ Run tasks concurrently: poll = 0
 
 If you want to run multiple tasks in a playbook concurrently, use ``async`` with ``poll`` set to 0. When you set ``poll: 0``, Ansible starts the task and immediately moves on to the next task without waiting for a result. Each async task runs until it either completes, fails or times out (runs longer than its ``async`` value). The playbook run ends without checking back on async tasks.
 
+This is a **broken emphasis section.
 To run a playbook task asynchronously:
 
 .. code-block:: yaml
