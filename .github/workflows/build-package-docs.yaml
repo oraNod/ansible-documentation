@@ -132,6 +132,7 @@ jobs:
       with:
         github_token: ${{ secrets.TEST_RELEASE_TOKEN }}
         branch: main
+        directory: deploy-directory
 
     #- name: Create a downloadable archive that contains the tarball
       #uses: actions/upload-artifact@v4
