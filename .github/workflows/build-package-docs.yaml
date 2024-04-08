@@ -117,9 +117,7 @@ jobs:
         path: deploy-directory
 
     - name: Copy the tarball
-      run: |
-        cd deploy-directory
-        rsync -vr --delete --mkpath build-directory/docs/docsite/ansible-package-docs-html-*.tar.gz docs-build
+      run: rsync -vr --delete --mkpath build-directory/docs/docsite/ansible-package-docs-html-*.tar.gz deploy-directory/docs-build
 
     - name: Commit files
       run: |
@@ -127,6 +125,7 @@ jobs:
         git config --local user.name "dnaro"
         git add . --all
         git diff-index --quiet HEAD || git commit -m "Upload package docs build"
+      working-directory: deploy-directory
 
     - name: Push
       uses: ad-m/github-push-action@master
