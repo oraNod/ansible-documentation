@@ -110,9 +110,16 @@ jobs:
         .
       working-directory: build-directory/docs/docsite
 
-    - name: Create a downloadable archive that contains the tarball
-      uses: actions/upload-artifact@v4
+    - name: Release
+      uses: softprops/action-gh-release@v2
       with:
-        name: package-docs-build
-        path: build-directory/docs/docsite/build.tar.gz
-        retention-days: 7
+        files: build-directory/docs/docsite/ansible-package-docs-html-*.tar.gz
+        repository: oraNod/ansible-docs-deploy
+        token: ${{ secrets.TEST_RELEASE_TOKEN }}
+
+    #- name: Create a downloadable archive that contains the tarball
+      #uses: actions/upload-artifact@v4
+      #with:
+        #name: package-docs-build
+        #path: build-directory/docs/docsite/build.tar.gz
+        #retention-days: 7
