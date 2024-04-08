@@ -130,6 +130,7 @@ jobs:
     - name: Push
       uses: ad-m/github-push-action@master
       with:
+        repository: oraNod/ansible-docs-deploy
         github_token: ${{ secrets.TEST_RELEASE_TOKEN }}
         branch: main
         directory: deploy-directory
