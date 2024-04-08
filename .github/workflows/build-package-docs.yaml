@@ -109,12 +109,30 @@ jobs:
         --directory=_build/html/ .
       working-directory: build-directory/docs/docsite
 
-    - name: Release
-      uses: softprops/action-gh-release@v2
+    - name: Checkout target directory
+      uses: actions/checkout@v4
       with:
-        files: build-directory/docs/docsite/ansible-package-docs-html-*.tar.gz
         repository: oraNod/ansible-docs-deploy
-        token: ${{ secrets.TEST_RELEASE_TOKEN }}
+        ref: main
+        path: deploy-directory
+
+    - name: Copy the tarball
+      run: |
+        cd deploy-directory
+        rsync -vr --delete --mkpath build-directory/docs/docsite/ansible-package-docs-html-*.tar.gz docs-build
+
+    - name: Commit files
+      run: |
+        git config --local user.email "dnaro@redhat.com"
+        git config --local user.name "dnaro"
+        git add . --all
+        git diff-index --quiet HEAD || git commit -m "Upload package docs build"
+
+    - name: Push
+      uses: ad-m/github-push-action@master
+      with:
+        github_token: ${{ secrets.TEST_RELEASE_TOKEN }}
+        branch: main
 
     #- name: Create a downloadable archive that contains the tarball
       #uses: actions/upload-artifact@v4
