@@ -114,6 +114,7 @@ jobs:
       with:
         repository: oraNod/ansible-docs-deploy
         ref: main
+        token: ${{ secrets.TEST_RELEASE_TOKEN }}
         path: deploy-directory
 
     - name: Copy the tarball
@@ -130,8 +131,8 @@ jobs:
     - name: Push
       uses: ad-m/github-push-action@master
       with:
-        repository: oraNod/ansible-docs-deploy
         github_token: ${{ secrets.TEST_RELEASE_TOKEN }}
+        repository: oraNod/ansible-docs-deploy
         branch: main
         directory: deploy-directory
 
