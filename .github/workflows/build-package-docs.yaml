@@ -118,9 +118,7 @@ jobs:
         path: deploy-directory
 
     - name: Copy the tarball
-      run: rsync -vr --delete --mkpath \
-           build-directory/docs/docsite/ansible-package-docs-html-*.tar.gz \
-           deploy-directory/docs-build/
+      run: rsync -vr --delete --mkpath build-directory/docs/docsite/ansible-package-docs-html-*.tar.gz deploy-directory/docs-build/
 
     - name: Commit files
       run: |
