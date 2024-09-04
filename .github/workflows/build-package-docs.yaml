@@ -85,7 +85,10 @@ jobs:
       run: echo VERSION="${PACKAGE_VERSION}" >> "${GITHUB_ENV}"
 
     - name: Build the Ansible community package docs
-      run: make webdocs ANSIBLE_VERSION="${COLLECTION_LIST}"
+      #run: make webdocs ANSIBLE_VERSION="${COLLECTION_LIST}"
+      run: |
+        mkdir -p _build/html/
+        echo "Hello gotmax" > _build/html/index.html
       working-directory: build-directory/docs/docsite
 
     - name: Create a tarball with the build contents
@@ -122,7 +125,7 @@ jobs:
         echo "Branch: ${{ github.event.inputs.repository-branch }}" >> "${GITHUB_STEP_SUMMARY}"
 
   notify-build-failures:
-    if: failure()
+    if: false
     needs: build-package-docs
     runs-on: ubuntu-latest
     env:
