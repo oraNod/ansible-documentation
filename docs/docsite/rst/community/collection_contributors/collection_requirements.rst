@@ -336,8 +336,6 @@ Module naming
 
 For more information, refer to the :ref:`Developing modules guidelines <creating_info_facts>`.
 
-Random build trigger
-
 .. _coll_licensing_req:
 
 Collection licensing requirements
