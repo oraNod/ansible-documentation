@@ -31,4 +31,4 @@ Continue getting started with Ansible by :ref:`building an inventory<get_started
    `Ansible Labs <https://www.ansible.com/products/ansible-training>`_
        Labs to provide further knowledge on different topics
    :ref:`Ansible Communication Guide<communication>`
-       Questions? Help? Ideas? Ask the community
+       Questions? Help? Ideas? Ask the community.
